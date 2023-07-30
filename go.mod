@@ -1,21 +1,23 @@
 module github.com/ahmetson/sample-proxy
 
-go 1.20
+go 1.21rc2
 
 replace github.com/ahmetson/service-lib => D:/sds/service-lib
 
 replace github.com/ahmetson/common-lib => D:/sds/common-lib
 
+replace github.com/ahmetson/web-controller => D:/sds/web-controller
+
 require (
-	github.com/ahmetson/common-lib v0.0.0-20230717140750-5e95e61d69c2
-	github.com/ahmetson/service-lib v0.0.0-20230723233610-7ec80f8c06d7
-	github.com/valyala/fasthttp v1.48.0
+	github.com/ahmetson/service-lib v0.0.0-20230729180157-25452151adf9
+	github.com/ahmetson/web-controller v0.0.0-20230729230606-31a941e889d4
 )
 
 require (
 	github.com/Microsoft/go-winio v0.5.2 // indirect
 	github.com/ProtonMail/go-crypto v0.0.0-20230518184743-7afd39499903 // indirect
 	github.com/acomagu/bufpipe v1.0.4 // indirect
+	github.com/ahmetson/common-lib v0.0.0-20230724204759-af1083a22757 // indirect
 	github.com/andybalholm/brotli v1.0.5 // indirect
 	github.com/btcsuite/btcd/btcec/v2 v2.2.1 // indirect
 	github.com/charmbracelet/lipgloss v0.6.0 // indirect
@@ -30,6 +32,7 @@ require (
 	github.com/go-git/go-git/v5 v5.8.0 // indirect
 	github.com/go-logfmt/logfmt v0.6.0 // indirect
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
+	github.com/google/uuid v1.3.0 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/imdario/mergo v0.3.15 // indirect
 	github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99 // indirect
@@ -60,6 +63,7 @@ require (
 	github.com/spf13/viper v1.15.0 // indirect
 	github.com/subosito/gotenv v1.4.2 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
+	github.com/valyala/fasthttp v1.48.0 // indirect
 	github.com/xanzy/ssh-agent v0.3.3 // indirect
 	github.com/xrash/smetrics v0.0.0-20201216005158-039620a65673 // indirect
 	golang.org/x/crypto v0.9.0 // indirect

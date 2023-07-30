@@ -7,11 +7,11 @@ import (
 )
 
 // creates a sample destination controller
-func newDestination(destinationConfig configuration.Controller) controller.Interface {
+func newDestination(destinationConfig configuration.Controller, serviceUrl string) *controller.Controller {
 
 	logger, _ := log.New("destination", false)
-	destination, _ := controller.NewReplier(logger)
-	destination.AddConfig(&destinationConfig)
+	destination, _ := controller.SyncReplier(logger)
+	destination.AddConfig(&destinationConfig, serviceUrl)
 
 	err := controller.AnyRoute(destination)
 	if err != nil {
