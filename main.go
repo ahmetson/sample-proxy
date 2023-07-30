@@ -51,5 +51,8 @@ func main() {
 	destination := newDestination(destinationConfig, service.Config.Service.Url)
 
 	go service.Run()
-	controller.Run(destination)
+	err = controller.Run(destination)
+	if err != nil {
+		logger.Fatal("controller.Run", "name", "destination", "error", err)
+	}
 }
