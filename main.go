@@ -2,7 +2,6 @@ package main
 
 import (
 	"github.com/ahmetson/service-lib/configuration"
-	"github.com/ahmetson/service-lib/controller"
 	"github.com/ahmetson/service-lib/log"
 	"github.com/ahmetson/service-lib/proxy"
 	"github.com/ahmetson/web-controller"
@@ -51,7 +50,7 @@ func main() {
 	destination := newDestination(destinationConfig, service.Config.Service.Url)
 
 	go service.Run()
-	err = controller.Run(destination)
+	err = destination.Run()
 	if err != nil {
 		logger.Fatal("controller.Run", "name", "destination", "error", err)
 	}
