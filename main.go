@@ -26,13 +26,13 @@ func main() {
 	////////////////////////////////////////////////////////////////////////
 
 	// the proxy creation will validate the config
-	web, err := web.NewWebController(logger)
+	webController, err := web.NewWebController(logger)
 	if err != nil {
-		logger.Fatal("failed to create a web controller", "error", err)
+		logger.Fatal("failed to create a webController controller", "error", err)
 	}
 
 	service := proxy.New(appConfig, logger)
-	service.SetCustomSource(web)
+	service.SetCustomSource(webController)
 
 	if err != nil {
 		logger.Fatal("failed to add source controller to the proxy", "error", err)
