@@ -9,7 +9,7 @@ import (
 
 // a web-proxy example
 func main() {
-	logger, err := log.New("main", false)
+	logger, err := log.New("sample-proxy", false)
 	if err != nil {
 		log.Fatal("failed to create a log instance", "error", err)
 	}
@@ -46,12 +46,13 @@ func main() {
 		logger.Info("server was prepared", "url", service.Config.Service.Url)
 	}
 
+	destinationLogger := logger.Child("temp-destination")
 	destinationConfig, _ := service.Config.Service.GetController(configuration.DestinationName)
-	destination := newDestination(destinationConfig, service.Config.Service.Url)
+	destination := newDestination(destinationConfig, service.Config.Service.Url, destinationLogger)
 
 	go service.Run()
 	err = destination.Run()
 	if err != nil {
-		logger.Fatal("controller.Run", "name", "destination", "error", err)
+		destinationLogger.Fatal("controller.Run", "error", err)
 	}
 }
